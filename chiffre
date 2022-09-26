@@ -1,0 +1,95 @@
+#!/bin/bash
+
+declare -a tab tab2 tab3 tab4
+read -p "Entrez le message à chiffrer : " message
+
+str=$message
+
+for i in $(seq 1 ${#str}); do
+	temp=$(echo $str | cut -c$i)
+	tab[$i-1]=$temp
+done
+
+for j in $(seq 0 ${#str}); do
+
+case ${tab[j]} in
+
+	a) tab2[j]=1;;
+	b) tab2[j]=2;;
+	c) tab2[j]=3;;
+	d) tab2[j]=4;;
+	e) tab2[j]=5;;
+	f) tab2[j]=6;;
+	g) tab2[j]=7;;
+	h) tab2[j]=8;;
+	i) tab2[j]=9;;
+	j) tab2[j]=10;;
+	k) tab2[j]=11;;
+	l) tab2[j]=12;;
+	m) tab2[j]=13;;
+	n) tab2[j]=14;;
+	o) tab2[j]=15;;
+	p) tab2[j]=16;;
+	q) tab2[j]=17;;
+	r) tab2[j]=18;;
+	s) tab2[j]=19;;
+	t) tab2[j]=20;;
+	u) tab2[j]=21;;
+	v) tab2[j]=22;;
+	w) tab2[j]=23;;
+	x) tab2[j]=24;;
+	y) tab2[j]=25;;
+	z) tab2[j]=26;;
+	" ") tab2[j]=27;;
+esac
+done
+
+for k in $(seq 1 ${#str}); do
+
+	let "tab3[k-1]=${tab2[k-1]}*257%28"
+
+done
+
+for l in $(seq 1 ${#str}); do
+
+case ${tab3[l-1]} in
+
+	1) tab4[l-1]=a;;
+	2) tab4[l-1]=b;;
+	3) tab4[l-1]=c;;
+        4) tab4[l-1]=d;;
+        5) tab4[l-1]=e;;
+        6) tab4[l-1]=f;;
+        7) tab4[l-1]=g;;
+        8) tab4[l-1]=h;;
+        9) tab4[l-1]=i;;
+        10) tab4[l-1]=j;;
+        11) tab4[l-1]=k;;
+        12) tab4[l-1]=l;;
+        13) tab4[l-1]=m;;
+        14) tab4[l-1]=n;;
+        15) tab4[l-1]=o;;
+        16) tab4[l-1]=p;;
+        17) tab4[l-1]=q;;
+        18) tab4[l-1]=r;;
+        19) tab4[l-1]=s;;
+        20) tab4[l-1]=t;;
+        21) tab4[l-1]=u;;
+        22) tab4[l-1]=v;;
+        23) tab4[l-1]=w;;
+        24) tab4[l-1]=x;;
+        25) tab4[l-1]=y;;
+        26) tab4[l-1]=z;;
+        27) tab4[l-1]=" ";;
+esac
+done
+
+
+
+for m in $(seq 1 ${#str}); do
+
+crypted=$crypted"${tab4[m-1]}"
+
+done
+
+echo "$crypted"
