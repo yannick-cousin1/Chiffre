@@ -1,0 +1,56 @@
+#!/bin/bash
+
+declare -a tab tab2 
+read -p "Entrez le message à dechiffrer : " message
+
+str=$message
+
+for i in $(seq 1 ${#str}); do
+	temp=$(echo $str | cut -c$i)
+	tab[$i-1]=$temp
+done
+
+for j in $(seq 0 ${#str}); do
+
+case ${tab[j]} in
+
+	a) tab2[j]=q;;
+	b) tab2[j]=f;;
+	c) tab2[j]=w;;
+	d) tab2[j]=l;;
+	e) tab2[j]=a;;
+	f) tab2[j]=r;;
+	g) tab2[j]=g;;
+	h) tab2[j]=x;;
+	i) tab2[j]=m;;
+	j) tab2[j]=b;;
+	k) tab2[j]=s;;
+	l) tab2[j]=h;;
+	m) tab2[j]=y;;
+	n) tab2[j]=n;;
+	o) tab2[j]=c;;
+	p) tab2[j]=t;;
+	q) tab2[j]=i;;
+	r) tab2[j]=z;;
+	s) tab2[j]=o;;
+	t) tab2[j]=d;;
+	u) tab2[j]=u;;
+	v) tab2[j]=j;;
+	w) tab2[j]=" ";;
+	x) tab2[j]=p;;
+	y) tab2[j]=e;;
+	z) tab2[j]=v;;
+	" ") tab2[j]=k;;
+esac
+done
+
+
+
+
+for m in $(seq 1 ${#str}); do
+
+decrypted=$decrypted"${tab2[m-1]}"
+
+done
+
+echo "$decrypted"
