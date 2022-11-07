@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# test encore
 declare -a tab tab2 
 read -p "Entrez le message à dechiffrer : " message
 
