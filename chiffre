@@ -1,4 +1,5 @@
 #!/bin/bash
+# test test test
 
 declare -a tab tab2 tab3 tab4
 read -p "Entrez le message à chiffrer : " message
